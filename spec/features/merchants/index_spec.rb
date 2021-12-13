@@ -4,7 +4,7 @@ RSpec.describe "Merchants Index Page" do
   before :each do
     @merchant = Merchant.create!(name: "Bob Belcher")
     @merchant2 = Merchant.create!(name: "Linda Belcher")
-    @merchant4 = Merchant.create!(name: "Jimmy Pesto")
+    @merchant3 = Merchant.create!(name: "Jimmy Pesto")
   end
 
   it "shows all merchants by name" do
@@ -15,6 +15,11 @@ RSpec.describe "Merchants Index Page" do
     expect(page).to have_content(@merchant3.name)
   end
 
-  xit "has links to the merchant show page" do
+  it "has links to the merchant show page" do
+    visit "/merchants"
+
+    click_link "#{@merchant.name}"
+
+    expect(current_path).to eq("/merchants/#{@merchant.id}")
   end
 end
