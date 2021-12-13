@@ -4,5 +4,6 @@ class MerchantsController < ApplicationController
   end
 
   def show
-  end 
+    @merchant = Merchant.find(params[:id])
+  end
 end
