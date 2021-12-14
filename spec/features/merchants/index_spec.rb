@@ -5,9 +5,14 @@ RSpec.describe "Merchants Index Page" do
     @merchant = Merchant.create!(name: "Bob Belcher")
     @merchant2 = Merchant.create!(name: "Linda Belcher")
     @merchant3 = Merchant.create!(name: "Jimmy Pesto")
+    #use this for feature tests
+    #leave this as an array and iterated through testing
+    # @merchant1 = MerchantFacade.all_merchants.first
+    # @merchant2 = MerchantFacade.all_merchants[1]
   end
 
   it "shows all merchants by name" do
+    binding.pry
     visit "/merchants"
 
     expect(page).to have_content(@merchant.name)
